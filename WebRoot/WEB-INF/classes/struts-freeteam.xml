@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="root" extends="struts-default" namespace="/">
+		<action name="login_*" method="{1}" class="cn.freeteam.action.LoginAction">
+			<result name="admin" type="redirect">/admin/index.jsp</result>
+			<result name="login" >/login.jsp</result>
+		</action>
+	</package>
+	
+
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<global-results>
+			<result name="msg" >/msg.jsp</result>
+			<result name="showMessage" >/admin/showMessage.jsp</result>
+		</global-results>
+		<action name="func_*" method="{1}" class="cn.freeteam.action.FuncAction">
+		</action>
+		<action name="unit_*" method="{1}" class="cn.freeteam.action.UnitAction">
+			<result name="select" >/admin/unitSelect.jsp</result>
+		</action>
+		<action name="user_*" method="{1}" class="cn.freeteam.action.UserAction">
+			<result name="profile" >/admin/user_profile.jsp</result>
+			<result name="pwd" >/admin/pwd.jsp</result>
+			<result name="list" >/admin/user.jsp</result>
+			<result name="auth" >/admin/userAuth.jsp</result>
+			<result name="appAuth" >/admin/userAppAuth.jsp</result>
+			<result name="ajaxEdit" >/admin/userAjaxEdit.jsp</result>
+		</action>
+		<action name="operButton_*" method="{1}" class="cn.freeteam.action.OperButtonAction">
+		</action>
+		<action name="admin_*" method="{1}" class="cn.freeteam.action.AdminAction">
+			<result name="left" >/admin/left.jsp</result>
+			<result name="top" >/admin/top.jsp</result>
+			<result name="right" >/admin/right.jsp</result>
+		</action>
+		<action name="role_*" method="{1}" class="cn.freeteam.action.RoleAction">
+			<result name="edit" >/admin/roleEdit.jsp</result>
+			<result name="auth" >/admin/roleAuth.jsp</result>
+			<result name="authBatch" >/admin/roleAuthBatch.jsp</result>
+			<result name="list" >/admin/role.jsp</result>
+			<result name="ajaxEdit" >/admin/roleAjaxEdit.jsp</result>
+			<result name="select" >/admin/roleSelect.jsp</result>
+		</action>
+		<action name="operLog_*" method="{1}" class="cn.freeteam.action.OperLogAction">
+			<result name="list" >/admin/operLog.jsp</result>
+		</action>
+		<action name="config_*" method="{1}" class="cn.freeteam.action.ConfigAction">
+			<result name="config" >/admin/config.jsp</result>
+		</action>
+		<action name="adminlink_*" method="{1}" class="cn.freeteam.action.AdminlinkAction">
+			<result name="list" >/admin/adminlinkList.jsp</result>
+			<result name="edit" >/admin/adminlinkEdit.jsp</result>
+		</action>
+		<action name="msg_*" method="{1}" class="cn.freeteam.action.MsgAction">
+			<result name="list" >/admin/msgList.jsp</result>
+			<result name="info" >/admin/msgInfo.jsp</result>
+			<result name="send" >/admin/msgSend.jsp</result>
+		</action>
+		<action name="demo_*" method="{1}" class="cn.freeteam.action.DemoAction">
+			<result name="list" >/admin/demoList.jsp</result>
+			<result name="edit" >/admin/demoEdit.jsp</result>
+		</action>
+	</package>
+	
+	<package name="member" extends="struts-default" namespace="/member">
+		<global-results>
+			<result name="showMessage" >/member/showMessage.jsp</result>
+			<result name="msg" >/msg.jsp</result>
+		</global-results>
+		<action name="msg_*" method="{1}" class="cn.freeteam.cms.action.member.MsgAction">
+			<result name="send" >/member/msg.jsp</result>
+			<result name="tolist" >/member/msgTolist.jsp</result>
+			<result name="sendlist" >/member/msgSendlist.jsp</result>
+			<result name="info" >/member/msgInfo.jsp</result>
+		</action>
+	</package>
+</struts>

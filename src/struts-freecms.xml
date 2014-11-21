@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="cmsAdmin" extends="struts-default" namespace="/admin/cms">
+		<global-results>
+			<result name="msg" >/msg.jsp</result>
+			<result name="showMessage" >/admin/showMessage.jsp</result>
+		</global-results>
+		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.SiteAction">
+			<result name="site" >/admin/cms/site.jsp</result>
+			<result name="edit" >/admin/cms/siteEdit.jsp</result>
+			<result name="config" >/admin/cms/siteConfig.jsp</result>
+			<result name="siteSelect" >/admin/cms/siteSelect.jsp</result>
+			<result name="siteSelectPage" >/admin/cms/siteSelectPage.jsp</result>
+			<result name="siteSelectPar" >/admin/cms/siteSelectPar.jsp</result>
+			<result name="siteCheck" >/admin/cms/siteCheck.jsp</result>
+			<result name="auth" >/admin/cms/siteAuth.jsp</result>
+			<result name="authPage" >/admin/cms/siteAuthPage.jsp</result>
+			<result name="init" >/admin/cms/siteInit.jsp</result>
+			<result name="guide" >/admin/cms/siteGuide.jsp</result>
+			<result name="guideTemplet" >/admin/cms/siteGuideTemplet.jsp</result>
+			<result name="guideInit" >/admin/cms/siteGuideInit.jsp</result>
+			<result name="guideCompleted" >/admin/cms/siteGuideCompleted.jsp</result>
+		</action>
+		<action name="channel_*" method="{1}" class="cn.freeteam.cms.action.ChannelAction">
+		 	<interceptor-ref name ="fileUploadStack" /> 
+			<result name="channel" >/admin/cms/channel.jsp</result>
+			<result name="edit" >/admin/cms/channelEdit.jsp</result>
+			<result name="channelSelect" >/admin/cms/channelSelect.jsp</result>
+			<result name="auth" >/admin/cms/channelAuth.jsp</result>
+			<result name="makehtml" >/admin/cms/channelMakehtml.jsp</result>
+		</action>
+		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.InfoAction">            
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		
+			<result name="edit" >/admin/cms/infoEdit.jsp</result>
+			<result name="info" >/admin/cms/info.jsp</result>
+			<result name="list" >/admin/cms/infoList.jsp</result>
+			<result name="makehtml" >/admin/cms/infoMakehtml.jsp</result>
+			<result name="extract" >/admin/cms/infoExtract.jsp</result>
+			<result name="extractMakehtml" >/admin/cms/infoExtractMakehtml.jsp</result>
+			<result name="copyMakehtml" >/admin/cms/infoCopyMakehtml.jsp</result>
+			<result name="moveMakehtml" >/admin/cms/infoMoveMakehtml.jsp</result>
+		</action>
+		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.TempletAction"> 
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+			<result name="list" >/admin/cms/templetList.jsp</result>
+			<result name="edit" >/admin/cms/templetEdit.jsp</result>
+			<result name="fileManage" >/admin/cms/templetFileManage.jsp</result>
+			<result name="fileSon" >/admin/cms/templetFileSon.jsp</result>
+			<result name="fileSonSelect" >/admin/cms/templetFileSonSelect.jsp</result>
+			<result name="fileEdit" >/admin/cms/templetFileEdit.jsp</result>
+			<result name="folderEdit" >/admin/cms/templetFolderEdit.jsp</result>
+			<result name="select" >/admin/cms/templetSelect.jsp</result>
+			<result name="selectFile" >/admin/cms/templetSelectFile.jsp</result>
+			<result name="data" >/admin/cms/templetData.jsp</result>
+		</action>
+		<action name="templetChannel_*" method="{1}" class="cn.freeteam.cms.action.TempletChannelAction">
+		 	<interceptor-ref name ="fileUploadStack" /> 
+			<result name="edit" >/admin/cms/templetChannelEdit.jsp</result>
+			<result name="templetChannelSelect" >/admin/cms/templetChannelSelect.jsp</result>
+		</action>
+		<action name="templetLink_*" method="{1}" class="cn.freeteam.cms.action.TempletLinkAction">
+			<result name="class" >/admin/cms/templetLinkClass.jsp</result>
+			<result name="clazzEdit" >/admin/cms/templetLinkClassEdit.jsp</result>
+		</action>
+		<action name="html_*" method="{1}" class="cn.freeteam.cms.action.HtmlAction">
+			<result name="index" >/admin/cms/htmlIndex.jsp</result>
+			<result name="indexConfirm" >/admin/cms/htmlIndexConfirm.jsp</result>
+			<result name="channel" >/admin/cms/htmlChannel.jsp</result>
+			<result name="info" >/admin/cms/htmlInfo.jsp</result>
+			<result name="msg" >/msg.jsp</result>
+		</action>
+		<action name="link_*" method="{1}" class="cn.freeteam.cms.action.LinkAction">
+			<result name="class" >/admin/cms/linkClass.jsp</result>
+			<result name="clazzEdit" >/admin/cms/linkClassEdit.jsp</result>
+			<result name="list" >/admin/cms/linkList.jsp</result>
+			<result name="edit" >/admin/cms/linkEdit.jsp</result>
+		</action>
+		<action name="mail_*" method="{1}" class="cn.freeteam.cms.action.MailAction">
+			<result name="list" >/admin/cms/mailList.jsp</result>
+			<result name="forward" >/admin/cms/mailForward.jsp</result>
+			<result name="pro" >/admin/cms/mailPro.jsp</result>
+		</action>
+		<action name="report_*" method="{1}" class="cn.freeteam.cms.action.ReportAction">
+			<result name="list" >/admin/cms/reportList.jsp</result>
+			<result name="forward" >/admin/cms/reportForward.jsp</result>
+			<result name="pro" >/admin/cms/reportPro.jsp</result>
+		</action>
+		<action name="applyopen_*" method="{1}" class="cn.freeteam.cms.action.ApplyopenAction">
+			<result name="list" >/admin/cms/applyopenList.jsp</result>
+			<result name="forward" >/admin/cms/applyopenForward.jsp</result>
+			<result name="pro" >/admin/cms/applyopenPro.jsp</result>
+		</action>
+		<action name="guestbook_*" method="{1}" class="cn.freeteam.cms.action.GuestbookAction">
+			<result name="list" >/admin/cms/guestbookList.jsp</result>
+			<result name="pro" >/admin/cms/guestbookPro.jsp</result>
+		</action>
+		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.QuestionAction">
+			<result name="list" >/admin/cms/questionList.jsp</result>
+			<result name="edit" >/admin/cms/questionEdit.jsp</result>
+		</action>
+		<action name="answer_*" method="{1}" class="cn.freeteam.cms.action.AnswerAction">
+		</action>
+		<action name="memberauth_*" method="{1}" class="cn.freeteam.cms.action.MemberauthAction">
+			<result name="list" >/admin/cms/memberauthList.jsp</result>
+			<result name="edit" >/admin/cms/memberauthEdit.jsp</result>
+		</action>
+		<action name="membergroup_*" method="{1}" class="cn.freeteam.cms.action.MembergroupAction">
+			<result name="list" >/admin/cms/membergroupList.jsp</result>
+			<result name="edit" >/admin/cms/membergroupEdit.jsp</result>
+			<result name="auth" >/admin/cms/membergroupAuth.jsp</result>
+		</action>
+		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.MemberAction">
+			<result name="list" >/admin/cms/memberList.jsp</result>
+			<result name="edit" >/admin/cms/memberEdit.jsp</result>
+		</action>
+		<action name="creditrule_*" method="{1}" class="cn.freeteam.cms.action.CreditruleAction">
+			<result name="list" >/admin/cms/creditruleList.jsp</result>
+			<result name="edit" >/admin/cms/creditruleEdit.jsp</result>
+		</action>
+		<action name="creditlog_*" method="{1}" class="cn.freeteam.cms.action.CreditlogAction">
+			<result name="list" >/admin/cms/creditlogList.jsp</result>
+		</action>
+		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.CommentAction">
+			<result name="list" >/admin/cms/commentList.jsp</result>
+		</action>
+		<action name="sensitive_*" method="{1}" class="cn.freeteam.cms.action.SensitiveAction">
+			<result name="list" >/admin/cms/sensitiveList.jsp</result>
+			<result name="edit" >/admin/cms/sensitiveEdit.jsp</result>
+		</action>
+		<action name="stat_*" method="{1}" class="cn.freeteam.cms.action.StatAction">
+			<result name="workload" >/admin/cms/workload.jsp</result>
+			<result name="workloadExport" >/admin/cms/workloadExport.jsp</result>
+			<result name="sysWorkload" >/admin/cms/sysWorkload.jsp</result>
+			<result name="sysWorkloadExport" >/admin/cms/sysWorkloadExport.jsp</result>
+			<result name="sysSiteStat" >/admin/cms/sysSiteStat.jsp</result>
+			<result name="sysSiteStatExport" >/admin/cms/sysSiteStatExport.jsp</result>
+			<result name="channelStat" >/admin/cms/channelStat.jsp</result>
+			<result name="channelStatExport" >/admin/cms/channelStatExport.jsp</result>
+			<result name="infoUpdate" >/admin/cms/infoUpdateStat.jsp</result>
+			<result name="infoUpdateExport" >/admin/cms/infoUpdateStatExport.jsp</result>
+			<result name="sysInfoUpdate" >/admin/cms/sysInfoUpdateStat.jsp</result>
+			<result name="sysInfoUpdateExport" >/admin/cms/sysInfoUpdateStatExport.jsp</result>
+			<result name="channelVisit" >/admin/cms/channelVisit.jsp</result>
+			<result name="channelVisitExport" >/admin/cms/channelVisitExport.jsp</result>
+			<result name="sysSiteVisit" >/admin/cms/sysSiteVisit.jsp</result>
+			<result name="sysSiteVisitExport" >/admin/cms/sysSiteVisitExport.jsp</result>
+			<result name="infoVisit" >/admin/cms/infoVisit.jsp</result>
+			<result name="infoVisitExport" >/admin/cms/infoVisitExport.jsp</result>
+			<result name="visitStat" >/admin/cms/visitStat.jsp</result>
+			<result name="visitStatExport" >/admin/cms/visitStatExport.jsp</result>
+			<result name="sysVisitStat" >/admin/cms/sysVisitStat.jsp</result>
+			<result name="sysVisitStatExport" >/admin/cms/sysVisitStatExport.jsp</result>
+			<result name="guestbookUpdate" >/admin/cms/guestbookUpdateStat.jsp</result>
+			<result name="guestbookUpdateExport" >/admin/cms/guestbookUpdateStatExport.jsp</result>
+			<result name="sysGuestbookUpdate" >/admin/cms/sysGuestbookUpdateStat.jsp</result>
+			<result name="sysGuestbookUpdateExport" >/admin/cms/sysGuestbookUpdateStatExport.jsp</result>
+			<result name="sysSiteGuestbook" >/admin/cms/sysSiteGuestbook.jsp</result>
+			<result name="sysSiteGuestbookExport" >/admin/cms/sysSiteGuestbookExport.jsp</result>
+			<result name="commentUpdate" >/admin/cms/commentUpdateStat.jsp</result>
+			<result name="commentUpdateExport" >/admin/cms/commentUpdateStatExport.jsp</result>
+			<result name="sysCommentUpdate" >/admin/cms/sysCommentUpdateStat.jsp</result>
+			<result name="sysCommentUpdateExport" >/admin/cms/sysCommentUpdateStatExport.jsp</result>
+			<result name="sysSiteComment" >/admin/cms/sysSiteComment.jsp</result>
+			<result name="sysSiteCommentExport" >/admin/cms/sysSiteCommentExport.jsp</result>
+		</action>
+		<action name="job_*" method="{1}" class="cn.freeteam.cms.action.JobAction">
+			<result name="list" >/admin/cms/jobList.jsp</result>
+			<result name="edit" >/admin/cms/jobEdit.jsp</result>
+		</action>
+		<action name="resume_*" method="{1}" class="cn.freeteam.cms.action.ResumeAction">
+			<result name="list" >/admin/cms/resumeList.jsp</result>
+			<result name="pro" >/admin/cms/resumePro.jsp</result>
+		</action>
+	</package>
+	
+	<package name="cmsWeb" extends="struts-default" namespace="/">
+		<global-results>
+			<result name="showMessage" >/showMessage.jsp</result>
+			<result name="msg" >/msg.jsp</result>
+		</global-results>
+		<action name="info_*" method="{1}" class="cn.freeteam.cms.action.web.InfoAction">
+			<result name="sign" >/cms/infoSign.jsp</result>
+		</action>
+		<action name="site_*" method="{1}" class="cn.freeteam.cms.action.web.SiteAction">
+		</action>
+		<action name="templet_*" method="{1}" class="cn.freeteam.cms.action.web.TempletAction">
+		</action>
+		<action name="question_*" method="{1}" class="cn.freeteam.cms.action.web.QuestionAction">
+		</action>
+		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.web.MemberAction">
+		</action>
+		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.web.CommentAction">
+		</action>
+		<action name="html_*" method="{1}" class="cn.freeteam.cms.action.web.HtmlAction">
+		</action>
+		<action name="visit_*" method="{1}" class="cn.freeteam.cms.action.web.VisitAction">
+		</action>
+		<action name="guestbook_*" method="{1}" class="cn.freeteam.cms.action.web.GuestbookAction">
+		</action>
+		<action name="report_*" method="{1}" class="cn.freeteam.cms.action.web.ReportAction">
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		</action>
+		<action name="resume_*" method="{1}" class="cn.freeteam.cms.action.web.ResumeAction">
+			<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2048000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+		</action>
+		<action name="applyopen_*" method="{1}" class="cn.freeteam.cms.action.web.ApplyopenAction">
+		</action>
+		<action name="store_*" method="{1}" class="cn.freeteam.cms.action.web.StoreAction">
+		</action>
+	</package>
+	<package name="cmsMember" extends="struts-default" namespace="/member">
+		<global-results>
+			<result name="showMessage" >/member/showMessage.jsp</result>
+			<result name="msg" >/msg.jsp</result>
+		</global-results>
+		<action name="member_*" method="{1}" class="cn.freeteam.cms.action.member.MemberAction">
+			<result name="index" >/member/index.jsp</result>
+			<result name="left" >/member/left.jsp</result>
+		</action>
+		<action name="creditlog_*" method="{1}" class="cn.freeteam.cms.action.member.CreditlogAction">
+			<result name="list" >/member/creditlogList.jsp</result>
+		</action>
+		<action name="comment_*" method="{1}" class="cn.freeteam.cms.action.member.CommentAction">
+			<result name="list" >/member/commentList.jsp</result>
+		</action>
+		<action name="guestbook_*" method="{1}" class="cn.freeteam.cms.action.member.GuestbookAction">
+			<result name="list" >/member/guestbookList.jsp</result>
+			<result name="info" >/member/guestbookInfo.jsp</result>
+		</action>
+		<action name="store_*" method="{1}" class="cn.freeteam.cms.action.member.StoreAction">
+			<result name="list" >/member/storeList.jsp</result>
+		</action>
+		<action name="resume_*" method="{1}" class="cn.freeteam.cms.action.member.ResumeAction">
+			<result name="list" >/member/resumeList.jsp</result>
+			<result name="info" >/member/resumeInfo.jsp</result>
+		</action>
+	</package>
+</struts>
